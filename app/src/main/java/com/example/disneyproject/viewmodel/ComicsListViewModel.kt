@@ -43,9 +43,7 @@ class ComicsListViewModel: ViewModel() {
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun generateHash(ts: String, privateKey: String, publicKey: String): String {
         val digest = MessageDigest.getInstance("MD5")
-        val dprk = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String(Base64.getDecoder().decode(privateKey), Charsets.UTF_8)
-        } else null
+        val dprk = String(Base64.getDecoder().decode(privateKey), Charsets.UTF_8)
         val combinedKey = "$ts$dprk$publicKey"
         digest.update(combinedKey.toByteArray(), 0, combinedKey.length)
         return java.math.BigInteger(1, digest.digest()).toString(16)

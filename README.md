@@ -7,7 +7,7 @@ By observing the LiveData object for the comic, the Composables can launch a loa
 Future state would involve fleshing out the Composable LazyColumn to create a list view to contain multiple comics provided by the comics endpoint, and then allowing users
 to click on individual comics in that list, in turn calling the service with that ID to then display the detailed comic data. For extensibility, dependency injection such as Dagger would be added (not necessary with this small app). 
 Testing needs to be fleshed out, as well as error handling and refining the data being returned from the service - I think I am using some incorrect data types for things like dates, as those are not being parsed correctly by GSON. 
-
+The UI needs a LOT OF WORK.
 
 Libraries used: 
 * ViewModel
